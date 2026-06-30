@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portofolio | Ferhan</title>
+    <style>
+        /* --- CSS STYLING --- */
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --background-color: #f8fafc;
+            --text-color: #0f172a;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+
+        .nav-links li {
+            margin-left: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        header {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 0 1rem;
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        header h1 span {
+            color: var(--primary-color);
+        }
+
+        header p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #475569;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-color);
+        }
+
+        /* Section General */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        section h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 5px;
+            background-color: var(--primary-color);
+            margin: 10px auto 0 auto;
+            border-radius: 2px;
+        }
+
+        /* Tentang Saya (About) */
+        .about-content {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Projects */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Memastikan semua gambar seragam dan rapi */
+        .project-img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-info {
+            padding: 1.5rem;
+        }
+
+        .project-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0f172a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            header h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Ferhan.dev</div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">Tentang</a></li>
+            <li><a href="#projects">Proyek</a></li>
+            <li><a href="#contact">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <header id="home">
+        <h1>Halo, Saya <span>Ferhan</span></h1>
+        <p>Front-End Web Developer | Designer</p>
+        <a href="#projects" class="btn">Lihat Karya Saya di bawah</a>
+    </header>
+
+    <section id="about">
+        <h2>Tentang Saya</h2>
+        <div class="about-content">
+            <p>Saya seorang pengembang web yang fokus membuat website yang interaktif, cepat, dan nyaman digunakan. Saya sangat menyukai dunia pemrograman web dan terus mempelajari teknologi terbaru untuk mengasah keahlian saya.</p>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Proyek Saya</h2>
+        <div class="project-grid">
+            <div class="project-card">
+                <img src="https://img.freepik.com/premium-photo/ecommerce-website-banner-design_1281315-1679.jpg?w=2000" alt="Website E-Commerce" class="project-img">
+                <div class="project-info">
+                    <h3>Website E-Commerce</h3>
+                    <p>Desain toko online modern menggunakan HTML dan CSS murni.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://i.pinimg.com/originals/78/f4/26/78f42673f2d003e413d433477b4c46a0.jpg" alt="Aplikasi To-Do List" class="project-img">
+                <div class="project-info">
+                    <h3>Aplikasi To-Do List</h3>
+                    <p>Aplikasi pengelola tugas harian interaktif berbasis JavaScript.</p>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="https://indonesianwriter.com/wp-content/uploads/2023/09/Contoh-portofolio-website-1024x604.webp" alt="Web Portofolio V1" class="project-img">
+                <div class="project-info">
+                    <h3>Web Portofolio V1</h3>
+                    <p>Desain portofolio statis pribadi dengan animasi CSS yang halus.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Hubungi Saya</h2>
+        <form class="contact-form" id="portfolioContactForm">
+            <div class="form-group">
+                <label for="name">Nama</label>
+                <input type="text" id="name" required placeholder="Masukkan nama Anda">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" required placeholder="Masukkan email Anda">
+            </div>
+            <div class="form-group">
+                <label for="message">Pesan</label>
+                <textarea id="message" rows="5" required placeholder="Tulis pesan Anda di sini..."></textarea>
+            </div>
+            <button type="submit" class="btn" style="border: none; width: 100%; cursor: pointer;">Kirim Pesan</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Ferhan. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('portfolioContactForm').addEventListener('submit', function(event) {
+            event.preventDefault(); 
+            
+            const nama = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const pesan = document.getElementById('message').value;
+
+            if(nama && email && pesan) {
+                alert(`Terima kasih ${nama}! Pesan kamu berhasil disimulasikan terkirim.\n\n(Karena tidak menggunakan PHP/Backend, pesan ini ditangkap menggunakan JavaScript lokal)`);
+                document.getElementById('portfolioContactForm').reset();
+            } else {
+                alert('Mohon isi semua data terlebih dahulu!');
+            }
+        });
+    </script>
+</body>
+</html>
